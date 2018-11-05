@@ -24,7 +24,6 @@
     "angular-material": "^1.1.10",
     "angular-messages": "^1.5.11",
     "babel-loader": "^8.0.4",
-    "bootstrap": "^3.3.7",
     "copy-webpack-plugin": "^4.5.4",
     "css-loader": "^1.0.0",
     "cssnano": "^4.1.4",
