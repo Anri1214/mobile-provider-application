@@ -1,16 +1,9 @@
 import * as _ from 'lodash';
 
 /**
- * @const {Object} API (List with server API)
+ * @const {String} API (Server API address)
  */
-const API = {
-  create: 'http://localhost:3000/api',
-  delete: 'http://localhost:3000/api',
-  detect: 'http://localhost:3000/api',
-  filter: 'http://localhost:3000/api',
-  read: 'http://localhost:3000/api',
-  update: 'http://localhost:3000/api'
-};
+const API = '/provider';
 
 /**
  * @const { Object } HEADERS (Default HTTP request header parameters)
@@ -46,7 +39,7 @@ export default class HttpService {
    * @return {Object}
    */
   addItem (data) {
-    return this.http.post(API.create, data);
+    return this.http.post(API, data);
   }
 
   /**
@@ -57,7 +50,7 @@ export default class HttpService {
    * @return {Object}
    */
   delItem (id) {
-    return this.http.delete(`${API.delete}/${id}`);
+    return this.http.delete(`${API}/${id}`);
   }
 
   /**
@@ -68,7 +61,7 @@ export default class HttpService {
    * @return {Object}
    */
   detectItems (data) {
-    return this.http.get(API.detect, { params: data });
+    return this.http.get(API, { params: data });
   }
 
   /**
@@ -79,7 +72,7 @@ export default class HttpService {
    * @return {Object}
    */
   filterItems (data) {
-    return this.http.get(API.filter, { params: data });
+    return this.http.get(API, { params: data });
   }
 
   /**
@@ -90,7 +83,7 @@ export default class HttpService {
    * @return {Object}
    */
   getItem (id) {
-    return this.http.get(`${API.read}/${id}`);
+    return this.http.get(`${API}/${id}`);
   }
 
   /**
@@ -99,7 +92,7 @@ export default class HttpService {
    * @return {Object}
    */
   getItems () {
-    return this.http.get(API.read);
+    return this.http.get(API);
   }
 
   /**
@@ -110,6 +103,6 @@ export default class HttpService {
    * @return {Object}
    */
   updateItem (data) {
-    return this.http.put(`${API.update}/${data.id}`, data);
+    return this.http.put(`${API}/${data.id}`, data);
   }
 }

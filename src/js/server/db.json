@@ -1,5 +1,5 @@
 {
-  "api": [
+  "provider": [
     {
       "id": 1,
       "providerName": "Orange",

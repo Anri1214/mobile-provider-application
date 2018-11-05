@@ -10,8 +10,8 @@
     "start": "webpack-dev-server --config ./webpack.dev.js --open",
     "lint": "eslint ./src",
     "lint:watch": "esw --watch",
-    "stylelint": "stylelint './src/**/*.css'",
-    "precommit": "npm run lint",
+    "stylelint": "stylelint './src/scss/*.css'",
+    "precommit": "npm run lint && npm run stylelint",
     "apiserver": "./node_modules/.bin/json-server --watch src/js/server/db.json"
   },
   "devDependencies": {

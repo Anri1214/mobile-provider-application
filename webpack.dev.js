@@ -95,7 +95,12 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, '../'),
     compress: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy: {
+      '/provider': {
+        target: 'http://localhost:3000'
+      }
+    }
   },
   performance: {
     hints: false
