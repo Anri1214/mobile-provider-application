@@ -12,11 +12,11 @@ export default class ConfigService {
   getDetectParams () {
     return {
       data: {
-        spns: '',
+        spn: '',
         imsi: ''
       },
       view: [
-        { field: 'spns', label: 'SPNS' },
+        { field: 'spn', label: 'SPN' },
         { field: 'imsi', label: 'IMSI' }
       ]
     };
@@ -74,7 +74,7 @@ export default class ConfigService {
       mcc: '',
       mnc: '',
       spns: [],
-      imsi: []
+      imsis: []
     };
   }
 
@@ -84,17 +84,28 @@ export default class ConfigService {
    * @return {Object}
    */
   getTableParams () {
-    return {
+    const params = {
       data: [],
+      filter: {},
       view: [
-        { filter: '', field: 'id', sort: 'asc', title: 'ID' },
-        { filter: '', field: 'providerName', sort: '', title: 'Provider Name' },
-        { filter: '', field: 'mcc', sort: '', title: 'MCC' },
-        { filter: '', field: 'mnc', sort: '', title: 'MNC' },
-        { filter: '', field: 'spns', sort: '', title: 'SPNS' },
-        { filter: '', field: 'imsi', sort: '', title: 'IMSI' },
+        { filter: false, field: 'id', sort: 'asc', title: 'ID' },
+        { filter: 'providerName', field: 'providerName', sort: '', title: 'Provider Name' },
+        { filter: 'mcc', field: 'mcc', sort: '', title: 'MCC' },
+        { filter: 'mnc', field: 'mnc', sort: '', title: 'MNC' },
+        { filter: 'spn', field: 'spns', sort: '', title: 'SPNS' },
+        { filter: 'imsi', field: 'imsis', sort: '', title: 'IMSIS' },
         { filter: false, field: 'action', sort: false, title: 'Action' }
       ]
     };
+
+    params.filter = params.view.reduce((acc, item) => {
+      if (item.filter) {
+        acc[item.filter] = '';
+      }
+
+      return acc;
+    }, {});
+
+    return params;
   }
 }

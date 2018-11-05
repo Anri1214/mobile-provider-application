@@ -26,7 +26,7 @@ function dialogboxController ($mdDialog, ConfigService, HttpService, ValidateSer
   this.closeDialog = () => $mdDialog.hide();
   this.delData = delData.bind(this);
   this.delItem = (item, index) => item.splice(index, 1);
-  this.getTitle = key => _.find(this.dlgView, { field: key }).title;
+  this.getTitle = getTitle.bind(this);
   this.isArrayData = data => _.isArray(data);
   this.isEmptyData = data => _.isEmpty(data);
   this.saveData = saveData.bind(this);
@@ -45,6 +45,20 @@ function delData () {
   this.http.delItem(this.dlgData.id)
     .then(() => this.closeDialog())
     .catch(() => this.dlgError = true);
+}
+
+/**
+ * @function get dialogbox field title
+ *
+ * @param {String} key (Field key)
+ *
+ * @return {Object}
+ */
+function getTitle (key) {
+  const title = _.find(this.dlgView, { field: key }).title;
+  const isArray = this.isArrayData(this.dlgData[key]);
+
+  return isArray ? title.slice(0, -1) : title;
 }
 
 /**

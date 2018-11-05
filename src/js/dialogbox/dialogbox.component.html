@@ -28,7 +28,9 @@
               <div class="md-dialog-content__view--item">
                 <md-input-container class="md-dialog-content__view--input">
                   <label>
-                    {{$ctrl.getTitle(key)}} (min: {{$ctrl.rules[key].min}}, max: {{$ctrl.rules[key].max}})
+                    {{$ctrl.getTitle(key)}}
+                    (min: {{$ctrl.rules[key].min}},
+                    max: {{$ctrl.rules[key].max}})
                   </label>
                   <input type="text" ng-model="$ctrl.dlgData[key]" required>
                 </md-input-container>
@@ -57,7 +59,9 @@
                 </md-button>
                 <md-input-container class="md-dialog-content__view--input">
                   <label>
-                    {{$ctrl.getTitle(key)}} (min: {{$ctrl.rules[key].min}}, max: {{$ctrl.rules[key].max}})
+                    {{$ctrl.getTitle(key)}}
+                    (min: {{$ctrl.rules[key.slice(0, -1)].min}},
+                    max: {{$ctrl.rules[key.slice(0, -1)].max}})
                   </label>
                   <input type="text" ng-model="val[$index]" required>
                 </md-input-container>

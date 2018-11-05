@@ -25,23 +25,24 @@
             class="mpa-table__col"
             ng-class="'mpa-table__col--' + $ctrl.toKebabCase(param.field)">
           <div class="mpa-table__container">
-            <md-input-container ng-if="param.filter !== false"
+            <md-input-container ng-if="param.filter"
                                 class="mpa-input-container">
               <label class="mpa-input-container__label">
                 Filter:
               </label>
               <input type="text"
-                     ng-model="param.filter"
+                     ng-model="$ctrl.tableParams.filter[param.filter]"
                      ng-change="$ctrl.updateTableData(true)"
                      class="mpa-input-container__input"
                      ng-class="'input-' + $ctrl.toKebabCase(param.field)">
             </md-input-container>
             <md-button class="mpa-table__head--btn btn-margin"
-                                   ng-if="param.filter !== false"
-                                   ng-click="$ctrl.updateTableData(false); param.filter = ''"
-                                   ng-disabled="!param.filter"
-                                   title="Clear Filter"
-                                   aria-label="close">
+                       ng-if="param.filter"
+                       ng-click="$ctrl.updateTableData(false);
+                                 $ctrl.tableParams.filter[param.filter] = ''"
+                       ng-disabled="!$ctrl.tableParams.filter[param.filter]"
+                       title="Clear Filter"
+                       aria-label="close">
             <i class="fas fa-times"></i>
           </md-button>
           </div>
@@ -76,12 +77,14 @@
           </div>
           <div ng-if="param.field === 'action'"
                class="mpa-table__container">
-            <md-button ng-click="$ctrl.showDlg($event, row, 'edit')"
+            <md-button class="mpa-table__body--btn"
+                       ng-click="$ctrl.showDlg($event, row, 'edit')"
                        title="Edit Item"
                        aria-label="edit">
               <i class="fas fa-edit"></i>
             </md-button>
-            <md-button ng-click="$ctrl.showDlg($event, row, 'del')"
+            <md-button class="mpa-table__body--btn"
+                       ng-click="$ctrl.showDlg($event, row, 'del')"
                        title="Delete Item"
                        aria-label="del">
               <i class="fas fa-trash"></i>

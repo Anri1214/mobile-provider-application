@@ -79,13 +79,7 @@ function sortTable (field) {
 function updateData (filter = false) {
   const method = filter ? 'filterItems' : 'getItems';
   const params = this.tableParams;
-  const data = params.view.reduce((acc, item) => {
-    if (item.filter) {
-      acc[item.field] = item.filter;
-    }
-
-    return acc;
-  }, {});
+  const data = _.pickBy(params.filter, val => val !== '');
 
   this.http[method](data)
     .then(res => {

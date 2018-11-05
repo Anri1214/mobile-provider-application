@@ -6,7 +6,7 @@
       "mcc": "214",
       "mnc": "03",
       "spns": [],
-      "imsi": []
+      "imsis": []
     },
     {
       "id": 2,
@@ -18,7 +18,7 @@
         "/orang/",
         "oran ESP"
       ],
-      "imsi": [
+      "imsis": [
         "2140300000000000",
         "2140300000000001"
       ]
@@ -31,7 +31,7 @@
       "spns": [
         "amena"
       ],
-      "imsi": [
+      "imsis": [
         "2140300000000002"
       ]
     },
@@ -44,14 +44,14 @@
         "/vodafone/i",
         "vf"
       ],
-      "imsi": []
+      "imsis": []
     },
     {
       "providerName": "Kyivstar",
       "mcc": "180",
       "mnc": "09",
       "spns": [],
-      "imsi": [],
+      "imsis": [],
       "id": 5
     },
     {
@@ -59,7 +59,7 @@
       "mcc": "180",
       "mnc": "06",
       "spns": [],
-      "imsi": [],
+      "imsis": [],
       "id": 6
     },
     {
@@ -67,7 +67,7 @@
       "mcc": "150",
       "mnc": "04",
       "spns": [],
-      "imsi": [],
+      "imsis": [],
       "id": 7
     },
     {
@@ -75,7 +75,7 @@
       "mcc": "214",
       "mnc": "02",
       "spns": [],
-      "imsi": [],
+      "imsis": [],
       "id": 8
     },
     {
@@ -83,7 +83,7 @@
       "mcc": "214",
       "mnc": "01",
       "spns": [],
-      "imsi": [],
+      "imsis": [],
       "id": 9
     },
     {
@@ -91,7 +91,7 @@
       "mcc": "214",
       "mnc": "05",
       "spns": [],
-      "imsi": [],
+      "imsis": [],
       "id": 10
     },
     {
@@ -99,8 +99,24 @@
       "mcc": "180",
       "mnc": "14",
       "spns": [],
-      "imsi": [],
+      "imsis": [],
       "id": 11
+    },
+    {
+      "providerName": "LifeCell",
+      "mcc": "180",
+      "mnc": "06",
+      "spns": [],
+      "imsis": [],
+      "id": 12
+    },
+    {
+      "providerName": "Orange",
+      "mcc": "214",
+      "mnc": "09",
+      "spns": [],
+      "imsis": [],
+      "id": 13
     }
   ]
 }

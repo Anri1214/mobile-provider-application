@@ -22,7 +22,7 @@ const RULES = {
     min: 2,
     require: true
   },
-  spns: {
+  spn: {
     max: 15,
     min: 2,
     require: true
@@ -58,8 +58,9 @@ export default class ValidateService {
     let valid = true;
 
     _.forEach(data, (val, key) => {
-      const rules = RULES[key];
       const arr = _.isArray(val) ? val : [val];
+      const ruleKey = _.isArray(val) ? key.slice(0, -1) : key;
+      const rules = RULES[ruleKey];
 
       arr.forEach(item => {
         _.forEach(rules, (rule, method) => {

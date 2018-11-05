@@ -65,6 +65,10 @@
           background-color: #f0f0f0;
         }
       }
+
+      &--btn {
+        margin: 0 3px;
+      }
     }
 
     &__container {
@@ -94,7 +98,7 @@
         width: 20%;
       }
 
-      &--imsi {
+      &--imsis {
         width: 22%;
       }
 
@@ -125,7 +129,7 @@
     @include flex(center, space-around);
 
     margin: 0 auto;
-    width: 500px;
+    width: 550px;
 
     &__input {
       @include flex();

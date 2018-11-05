@@ -61,7 +61,7 @@ export default class HttpService {
    * @return {Object}
    */
   detectItems (data) {
-    return this.http.get(API, { params: data });
+    return this.http.get(`${API}/detect`, { params: data });
   }
 
   /**
