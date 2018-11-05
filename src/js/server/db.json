@@ -1,0 +1,106 @@
+{
+  "api": [
+    {
+      "id": 1,
+      "providerName": "Orange",
+      "mcc": "214",
+      "mnc": "03",
+      "spns": [],
+      "imsi": []
+    },
+    {
+      "id": 2,
+      "providerName": "Orange",
+      "mcc": "214",
+      "mnc": "09",
+      "spns": [
+        "/orange/i",
+        "/orang/",
+        "oran ESP"
+      ],
+      "imsi": [
+        "2140300000000000",
+        "2140300000000001"
+      ]
+    },
+    {
+      "id": 3,
+      "providerName": "Amena",
+      "mcc": "214",
+      "mnc": "09",
+      "spns": [
+        "amena"
+      ],
+      "imsi": [
+        "2140300000000002"
+      ]
+    },
+    {
+      "id": 4,
+      "providerName": "Vodafone",
+      "mcc": "214",
+      "mnc": "01",
+      "spns": [
+        "/vodafone/i",
+        "vf"
+      ],
+      "imsi": []
+    },
+    {
+      "providerName": "Kyivstar",
+      "mcc": "180",
+      "mnc": "09",
+      "spns": [],
+      "imsi": [],
+      "id": 5
+    },
+    {
+      "providerName": "LifeCell",
+      "mcc": "180",
+      "mnc": "06",
+      "spns": [],
+      "imsi": [],
+      "id": 6
+    },
+    {
+      "providerName": "Vodafone",
+      "mcc": "150",
+      "mnc": "04",
+      "spns": [],
+      "imsi": [],
+      "id": 7
+    },
+    {
+      "providerName": "Movistar",
+      "mcc": "214",
+      "mnc": "02",
+      "spns": [],
+      "imsi": [],
+      "id": 8
+    },
+    {
+      "providerName": "Movistar",
+      "mcc": "214",
+      "mnc": "01",
+      "spns": [],
+      "imsi": [],
+      "id": 9
+    },
+    {
+      "providerName": "Amena",
+      "mcc": "214",
+      "mnc": "05",
+      "spns": [],
+      "imsi": [],
+      "id": 10
+    },
+    {
+      "providerName": "Kyivstar",
+      "mcc": "180",
+      "mnc": "14",
+      "spns": [],
+      "imsi": [],
+      "id": 11
+    }
+  ]
+}

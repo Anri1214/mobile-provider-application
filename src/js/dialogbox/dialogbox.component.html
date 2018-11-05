@@ -1,0 +1,121 @@
+<md-dialog class="mpa-dialog" aria-label="dialog">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>
+          {{$ctrl.toolbar[$ctrl.dlgType]}}
+          <span ng-if="$ctrl.dlgType === 'del' || $ctrl.dlgType === 'edit'">
+            (ID: {{$ctrl.dlgData.id}})
+          </span>
+        </h2>
+        <span flex></span>
+        <md-button class="md-icon-button md-toolbar-tools__btn"
+                   ng-click="$ctrl.closeDialog()"
+                   aria-label="close">
+          <i class="fas fa-times"></i>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <div ng-if="$ctrl.dlgType === 'del'">
+          <h3>Are you sure that want to delete item data (ID: {{$ctrl.dlgData.id}})</h3>
+        </div>
+        <div ng-if="$ctrl.dlgType === 'add' || $ctrl.dlgType === 'edit'">
+          <div ng-repeat="(key, val) in $ctrl.dlgData">
+            <div ng-if="!$ctrl.isArrayData(val) && key !== 'id'"
+                 class="md-dialog-content__view">
+              <div class="md-dialog-content__view--item">
+                <md-input-container class="md-dialog-content__view--input">
+                  <label>
+                    {{$ctrl.getTitle(key)}} (min: {{$ctrl.rules[key].min}}, max: {{$ctrl.rules[key].max}})
+                  </label>
+                  <input type="text" ng-model="$ctrl.dlgData[key]" required>
+                </md-input-container>
+                <md-button ng-click="$ctrl.dlgData[key] = ''"
+                           ng-disabled="!$ctrl.dlgData[key]"
+                           title="Clear Field"
+                           aria-label="clear">
+                  <i class="fas fa-times"></i>
+                </md-button>
+              </div>
+            </div>
+            <div ng-if="$ctrl.isArrayData(val)"
+                 class="md-dialog-content__view">
+              <div class="md-dialog-content__view--section">
+                <label>Add new {{$ctrl.getTitle(key)}} item</label>
+                <md-button ng-click="$ctrl.addItem(val)"
+                           title="Add New Item"
+                           aria-label="plus">
+                  <i class="fas fa-plus"></i>
+                </md-button>
+              </div>
+              <div ng-repeat="item in val track by $index"
+                   class="md-dialog-content__view--item">
+                <md-button ng-click="$ctrl.delItem(val, $index)" aria-label="minus">
+                  <i class="fas fa-minus"></i>
+                </md-button>
+                <md-input-container class="md-dialog-content__view--input">
+                  <label>
+                    {{$ctrl.getTitle(key)}} (min: {{$ctrl.rules[key].min}}, max: {{$ctrl.rules[key].max}})
+                  </label>
+                  <input type="text" ng-model="val[$index]" required>
+                </md-input-container>
+                <md-button ng-click="val[$index] = ''"
+                           ng-disabled="!val[$index]"
+                           title="Clear Field"
+                           aria-label="clear">
+                  <i class="fas fa-times"></i>
+                </md-button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div ng-if="!$ctrl.dlgError && $ctrl.dlgType === 'view'">
+          <div ng-if="$ctrl.isEmptyData($ctrl.dlgData)">
+            <label class="err-msg">Providers not found</label>
+          </div>
+          <div ng-if="!$ctrl.isEmptyData($ctrl.dlgData)"
+               ng-repeat="item in $ctrl.dlgData">
+            <label>{{item.providerName}}</label>
+            <hr ng-if="!$last">
+          </div>
+        </div>
+        <div ng-if="$ctrl.dlgError">
+          <label class="err-msg">
+            <hr ng-if="$ctrl.dlgType !== 'view'">
+            Can't {{$ctrl.toolbar[$ctrl.dlgType]}}. Try Again Later.
+          </label>
+        </div>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <div class="md-dialog-actions">
+        <div ng-if="$ctrl.dlgType === 'add' || $ctrl.dlgType === 'edit'">
+          <md-button ng-click="$ctrl.saveData()"
+                     class="md-dialog-actions__btn"
+                     ng-disabled="!$ctrl.validateData()"
+                     aria-label="save">
+            <i class="fas fa-save"></i>Save
+          </md-button>
+        </div>
+        <div ng-if="$ctrl.dlgType === 'del'">
+          <md-button ng-click="$ctrl.delData()"
+                     class="md-dialog-actions__btn"
+                     aria-label="del">
+            <i class="fas fa-trash"></i>Delete
+          </md-button>
+        </div>
+        <div>
+          <md-button ng-click="$ctrl.closeDialog()"
+                     class="md-dialog-actions__btn"
+                     aria-label="close">
+            <i class="fas"
+               ng-class="$ctrl.dlgType === 'view' ? 'fa-times' : 'fa-ban'">
+            </i>{{$ctrl.dlgType === 'view' ? 'Close' : 'Cancel'}}
+          </md-button>
+        </div>
+      </div>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

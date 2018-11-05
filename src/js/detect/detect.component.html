@@ -1,0 +1,30 @@
+<div class="mpa-detect-wrapper">
+  <h2 class="mpa-detect-title">Providers Define</h2>
+  <div class="mpa-detect-container">
+    <div ng-repeat="param in $ctrl.detectParams.view"
+         class="mpa-detect-container__input">
+      <md-input-container>
+        <label>
+          {{param.label}}: (min: {{$ctrl.rules[param.field].min}}, max: {{$ctrl.rules[param.field].max}})
+        </label>
+        <input type="text"
+               ng-model="$ctrl.detectParams.data[param.field]"
+               required>
+      </md-input-container>
+      <md-button class="mpa-detect-container__button btn-close"
+                 ng-click="$ctrl.detectParams.data[param.field] = ''"
+                 ng-disabled="!$ctrl.detectParams.data[param.field]"
+                 title="Clear Field"
+                 aria-label="close">
+        <i class="fas fa-times"></i>
+      </md-button>
+    </div>
+    <md-button class="mpa-detect-container__button"
+               ng-click="$ctrl.detectProvider($event)"
+               ng-disabled="!$ctrl.validateData()"
+               title="Define Providers"
+               aria-label="define">
+      <i class="fas fa-search"></i> Define
+    </md-button>
+  </div>
+</div>

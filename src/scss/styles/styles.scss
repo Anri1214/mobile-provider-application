@@ -1,0 +1,35 @@
+@import 'reset';
+@import 'header';
+@import 'main';
+@import 'footer';
+@import 'dialog';
+
+.md-button {
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: #e4e4e4 !important;
+    }
+  }
+}
+
+.err-msg {
+  color: #f00;
+  font-size: 18px;
+}
+
+md-input-container {
+  margin: #{$input-margin} 0 0 0;
+  width: 100%;
+
+  &__label {
+    height: 20px;
+  }
+
+  & .md-errors-spacer {
+    display: none;
+  }
+}

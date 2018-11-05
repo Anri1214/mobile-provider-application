@@ -1,0 +1,103 @@
+<div class="mpa-table-wrapper">
+  <h2 class="mpa-table-title">Providers List</h2>
+  <table ng-init="$ctrl.updateTableData(false)" class="mpa-table">
+    <thead class="mpa-table__head">
+      <tr class="mpa-table__head--row background">
+        <th ng-repeat="param in $ctrl.tableParams.view"
+            class="mpa-table__col center"
+            ng-class="'mpa-table__col--' + $ctrl.toKebabCase(param.field)">
+          <div class="mpa-table__container">
+            {{param.title}}
+            <md-button class="mpa-table__head--btn"
+                       ng-if="param.sort !== false"
+                       ng-click="$ctrl.sortTableData(param.field)"
+                       title="Sort Item"
+                       aria-label="sort">
+              <i class="fas"
+                 ng-class="'fa-sort' + (param.sort ? $ctrl.getSortIcon(param.sort) : '')">
+              </i>
+            </md-button>
+          </div>
+        </th>
+      </tr>
+      <tr class="mpa-table__head--row">
+        <th ng-repeat="param in $ctrl.tableParams.view"
+            class="mpa-table__col"
+            ng-class="'mpa-table__col--' + $ctrl.toKebabCase(param.field)">
+          <div class="mpa-table__container">
+            <md-input-container ng-if="param.filter !== false"
+                                class="mpa-input-container">
+              <label class="mpa-input-container__label">
+                Filter:
+              </label>
+              <input type="text"
+                     ng-model="param.filter"
+                     ng-change="$ctrl.updateTableData(true)"
+                     class="mpa-input-container__input"
+                     ng-class="'input-' + $ctrl.toKebabCase(param.field)">
+            </md-input-container>
+            <md-button class="mpa-table__head--btn btn-margin"
+                                   ng-if="param.filter !== false"
+                                   ng-click="$ctrl.updateTableData(false); param.filter = ''"
+                                   ng-disabled="!param.filter"
+                                   title="Clear Filter"
+                                   aria-label="close">
+            <i class="fas fa-times"></i>
+          </md-button>
+          </div>
+          <div ng-if="param.field === 'action'"
+               class="mpa-table__container">
+            <md-button class="mpa-table__head--btn btn-margin"
+                       ng-click="$ctrl.showDlg($event, null, 'add')"
+                       title="Add New Item"
+                       aria-label="create">
+              <i class="fas fa-plus"></i>
+            </md-button>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody ng-if="!$ctrl.error" class="mpa-table__body">
+      <tr ng-repeat="row in $ctrl.tableParams.data"
+          class="mpa-table__body--row"
+          ng-class="$index % 2 == 0 ? 'dark' : ''">
+        <td ng-repeat="param in $ctrl.tableParams.view"
+            class="mpa-table__col"
+            ng-class="'mpa-table__col--' + $ctrl.toKebabCase(param.field)">
+          <div ng-if="param.field !== 'action'">
+            <div ng-if="!$ctrl.isArrayData(row[param.field])">
+              {{row[param.field]}}
+            </div>
+            <div ng-if="$ctrl.isArrayData(row[param.field])">
+              <p ng-repeat="item in row[param.field]">
+                {{item}}{{!$last ? '\n' : ''}}
+              </p>
+            </div>
+          </div>
+          <div ng-if="param.field === 'action'"
+               class="mpa-table__container">
+            <md-button ng-click="$ctrl.showDlg($event, row, 'edit')"
+                       title="Edit Item"
+                       aria-label="edit">
+              <i class="fas fa-edit"></i>
+            </md-button>
+            <md-button ng-click="$ctrl.showDlg($event, row, 'del')"
+                       title="Delete Item"
+                       aria-label="del">
+              <i class="fas fa-trash"></i>
+            </md-button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+    <tbody ng-if="$ctrl.error">
+      <tr class="mpa-table__body--row">
+        <td class="mpa-table__col">
+          <label class="err-msg">
+            Can't Load Table Data. Try Again Later.
+          </label>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

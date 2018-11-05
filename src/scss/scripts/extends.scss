@@ -1,0 +1,21 @@
+@import './constants';
+
+%table-col {
+  overflow: hidden;
+  padding: $main-table-data-padding;
+  white-space: nowrap;
+
+  &.center {
+    text-align: center;
+  }
+}
+
+%round-btn {
+  border-radius: 50%;
+  height: $main-btn-size;
+  line-height: $main-btn-size;
+  min-height: $main-btn-size;
+  min-width: $main-btn-size;
+  padding: 0;
+  width: $main-btn-size;
+}

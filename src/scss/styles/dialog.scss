@@ -1,0 +1,91 @@
+@import '../scripts/constants';
+@import '../scripts/extends';
+@import '../scripts/mixins';
+
+md-dialog {
+  max-width: none;
+  min-width: 300px;
+  overflow: inherit !important;
+  transition: none !important;
+
+  & .mpa-dialog {
+    & md-toolbar {
+      min-height: $nav-height;
+
+      & .md-toolbar-tools {
+        background-color: $app-background;
+        height: $nav-height;
+        min-height: $nav-height;
+
+        &__btn {
+          @extend %round-btn;
+
+          &:hover {
+            background-color: #fff !important;
+            color: $app-background;
+          }
+        }
+      }
+    }
+
+    & md-dialog-content {
+      max-height: calc(80vh - #{$nav-height} - #{$dlg-actions-height});
+
+      & .md-dialog-content {
+        overflow-y: auto;
+
+        &__view {
+          &--input {
+            margin-bottom: $input-margin;
+            width: 100%;
+          }
+
+          &--item {
+            @include flex(center, space-between);
+          }
+
+          &--section {
+            @include flex;
+
+            background-color: #f0f0f0;
+          }
+        }
+
+        & .md-button {
+          @extend %round-btn;
+
+          &:hover {
+            background-color: $app-background;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    & md-dialog-actions {
+      border-top: 1px solid #e0e0e0;
+      height: $dlg-actions-height;
+      min-height: $dlg-actions-height;
+
+      & .md-dialog-actions {
+        display: flex;
+
+        &__btn {
+          &:hover {
+            background-color: $app-background;
+            color: #fff;
+          }
+        }
+
+        & .fas {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+  .err-msg {
+    text-align: center;
+    width: 100%;
+  }
+}

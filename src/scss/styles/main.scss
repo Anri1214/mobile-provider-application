@@ -1,0 +1,147 @@
+@import '../scripts/constants';
+@import '../scripts/extends';
+@import '../scripts/mixins';
+
+.mpa-table-wrapper {
+  height: $main-table-wrapper-height;
+  padding: $main-padding $main-padding 0;
+
+  & .md-button {
+    @extend %round-btn;
+
+    margin: 0;
+
+    &:hover {
+      background-color: $app-background;
+      color: #fff;
+    }
+  }
+
+  & .mpa-table-title {
+    @include flex();
+
+    height: $main-title-height;
+  }
+
+  & .mpa-table {
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 100%;
+
+    &__head {
+      display: block;
+
+      &--row {
+        @include flex();
+
+        width: 97%;
+        width: -webkit-calc(100% - 16px);
+        width: -moz-calc(100% - 16px);
+        width: calc(100% - 16px);
+
+        &.background {
+          background-color: $app-background;
+          color: #fff;
+        }
+      }
+
+      &--btn {
+        &.btn-margin {
+          margin-top: $input-margin;
+        }
+      }
+    }
+
+    &__body {
+      display: block;
+      max-height: $main-table-content-height;
+      overflow-x: hidden;
+      overflow-y: scroll;
+
+      &--row {
+        @include flex();
+
+        &.dark {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+
+    &__container {
+      @include flex();
+    }
+
+    &__col {
+      @extend %table-col;
+
+      &--id {
+        width: 8%;
+      }
+
+      &--provider-name {
+        width: 24%;
+      }
+
+      &--mcc {
+        width: 8%;
+      }
+
+      &--mnc {
+        width: 8%;
+      }
+
+      &--spns {
+        width: 20%;
+      }
+
+      &--imsi {
+        width: 22%;
+      }
+
+      &--action {
+        width: 10%;
+      }
+
+      & .err-msg {
+        @include flex();
+
+        font-size: 24px;
+        height: $main-table-content-height;
+      }
+    }
+  }
+}
+
+.mpa-detect-wrapper {
+  height: $detect-height;
+
+  & .mpa-detect-title {
+    @include flex();
+
+    height: $main-title-height;
+  }
+
+  & .mpa-detect-container {
+    @include flex(center, space-around);
+
+    margin: 0 auto;
+    width: 500px;
+
+    &__input {
+      @include flex();
+    }
+
+    &__button {
+      margin: $input-margin 0 0;
+
+      &.btn-close {
+        @extend %round-btn;
+      }
+
+      &:hover {
+        background-color: $app-background;
+        color: #fff;
+      }
+    }
+  }
+}

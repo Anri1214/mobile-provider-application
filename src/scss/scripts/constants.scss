@@ -1,0 +1,13 @@
+$app-background: #2f364a;
+$app-border-radius: .5rem;
+$input-height: 30px;
+$input-margin: 15px;
+$detect-height: 100px;
+$nav-height: 40px;
+$main-padding: 80px;
+$main-btn-size: 32px;
+$main-title-height: 50px;
+$main-table-data-padding: 5px;
+$main-table-wrapper-height: calc(100vh - #{$nav-height} * 2 - #{$main-padding} - #{$detect-height});
+$main-table-content-height: calc(#{$main-table-wrapper-height} - #{$main-title-height} - #{$main-padding} - #{$main-btn-size} - #{$main-table-data-padding} * 4 - #{$input-margin} - #{$input-height});
+$dlg-actions-height: 50px;

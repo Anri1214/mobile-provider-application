@@ -1,0 +1,29 @@
+@import '../scripts/constants';
+@import '../scripts/mixins';
+
+.mpa-header {
+  & .mpa-navigator {
+    @include flex();
+
+    background-color: $app-background;
+    border-radius: 0 0 $app-border-radius $app-border-radius;
+    flex-direction: row;
+    height: $nav-height;
+
+    &__title {
+      &--item {
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+          color: #ff5757;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  & .fas {
+    margin-right: 5px;
+  }
+}

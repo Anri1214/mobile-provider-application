@@ -1,0 +1,21 @@
+@import '../scripts/constants';
+@import '../scripts/mixins';
+
+.mpa-footer {
+  & .mpa-copyright {
+    @include flex();
+
+    background-color: $app-background;
+    border-radius: $app-border-radius $app-border-radius 0 0;
+    bottom: 0;
+    color: #fff;
+    flex-direction: row;
+    position: absolute;
+    height: $nav-height;
+    width: 100%;
+  }
+
+  & .fas {
+    margin-right: 5px;
+  }
+}
