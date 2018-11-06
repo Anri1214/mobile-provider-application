@@ -99,10 +99,11 @@ export default class HttpService {
    * @method update item on server
    *
    * @param {Object} data (Create data parameters)
+   * @param {int} id (Update data ID)
    *
    * @return {Object}
    */
-  updateItem (data) {
-    return this.http.put(`${API}/${data.id}`, data);
+  updateItem (data, id) {
+    return this.http.put(`${API}/${id}`, data);
   }
 }

@@ -88,7 +88,7 @@ export default class ConfigService {
       data: [],
       filter: {},
       view: [
-        { filter: false, field: 'id', sort: 'asc', title: 'ID' },
+        { filter: false, field: 'num', sort: 'asc', title: '№' },
         { filter: 'providerName', field: 'providerName', sort: '', title: 'Provider Name' },
         { filter: 'mcc', field: 'mcc', sort: '', title: 'MCC' },
         { filter: 'mnc', field: 'mnc', sort: '', title: 'MNC' },

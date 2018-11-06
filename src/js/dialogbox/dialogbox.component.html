@@ -23,7 +23,7 @@
         </div>
         <div ng-if="$ctrl.dlgType === 'add' || $ctrl.dlgType === 'edit'">
           <div ng-repeat="(key, val) in $ctrl.dlgData">
-            <div ng-if="!$ctrl.isArrayData(val) && key !== 'id'"
+            <div ng-if="!$ctrl.isArrayData(val) && key !== 'id' && key !='num'"
                  class="md-dialog-content__view">
               <div class="md-dialog-content__view--item">
                 <md-input-container class="md-dialog-content__view--input">
@@ -79,10 +79,8 @@
           <div ng-if="$ctrl.isEmptyData($ctrl.dlgData)">
             <label class="err-msg">Providers not found</label>
           </div>
-          <div ng-if="!$ctrl.isEmptyData($ctrl.dlgData)"
-               ng-repeat="item in $ctrl.dlgData">
-            <label>{{item.providerName}}</label>
-            <hr ng-if="!$last">
+          <div ng-if="!$ctrl.isEmptyData($ctrl.dlgData)">
+            <label>{{$ctrl.dlgData.providerName}}</label>
           </div>
         </div>
         <div ng-if="$ctrl.dlgError">

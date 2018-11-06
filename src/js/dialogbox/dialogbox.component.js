@@ -19,6 +19,7 @@ import 'angular-material';
  * @param {Object} ValidateService (Validation service)
  */
 function dialogboxController ($mdDialog, ConfigService, HttpService, ValidateService) {
+  this.config = ConfigService;
   this.http = HttpService;
   this.rules = ValidateService.getRules();
   this.toolbar = ConfigService.getDialogboxToolbar();
@@ -65,9 +66,13 @@ function getTitle (key) {
  * @function save dialogbox data
  */
 function saveData () {
+  const data = this.dlgData;
+  const save = this.config.getTableItem();
+  const keys = _.keys(save);
   const method = this.dlgType === 'add' ? 'addItem' : 'updateItem';
 
-  this.http[method](this.dlgData)
+  _.assign(save, _.pick(data, keys));
+  this.http[method](save, data.id)
     .then(() => this.closeDialog())
     .catch(() => this.dlgError = true);
 }

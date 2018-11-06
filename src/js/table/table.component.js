@@ -84,7 +84,12 @@ function updateData (filter = false) {
   this.http[method](data)
     .then(res => {
       this.error = false;
-      params.data = res.data;
+      params.data = res.data.map((item, index) => {
+        item.num = index + 1;
+
+        return item;
+      });
+
     })
     .catch(() => this.error = true);
 }
