@@ -28,8 +28,8 @@ const RULES = {
     require: true
   },
   imsi: {
-    max: 12,
-    min: 15,
+    max: 15,
+    min: 12,
     require: true
   }
 };
