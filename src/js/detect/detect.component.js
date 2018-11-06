@@ -42,6 +42,7 @@ detectController.$inject = ['$scope', '$mdDialog', 'ConfigService', 'HttpService
 function detectProvider ($event) {
   this.http.detectItems(this.detectParams.data)
     .then(res => {
+      this.scope.dlgError = false;
       this.showResult($event, res.data, 'view');
     })
     .catch(() => {
