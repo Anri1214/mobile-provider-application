@@ -3,7 +3,7 @@
 import NavbarController from './navbar.controller';
 
 /**
- * @constant {Object} NavbarComponent
+ * @const {Object} NavbarComponent
  */
 const NavbarComponent = {
   controller: NavbarController,

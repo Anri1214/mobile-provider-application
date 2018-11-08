@@ -5,7 +5,7 @@ import FooterModule from './footer/footer.module';
 import NavbarModule from './navbar/navbar.module';
 
 /**
- * @constant {String} CommonModule
+ * @const {String} CommonModule
  */
 const CommonModule = angular
   .module('app.common', [

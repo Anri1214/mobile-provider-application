@@ -45,7 +45,7 @@ class TableController {
   /**
    * Show table row information in dialogbox.
    * @param {Event} $event - Button click event.
-   * @param {Object} row - Table row data.
+   * @param {Provider} row - Table row data.
    * @param {String} type - Dialogbox type.
    */
   showInfo ($event, row, type) {

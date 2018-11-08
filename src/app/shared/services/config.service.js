@@ -46,7 +46,7 @@ class ConfigService {
 
   /**
    * Get default empty table item.
-   * @return {Object}
+   * @return {Provider}
    */
   getTableItem () {
     return {

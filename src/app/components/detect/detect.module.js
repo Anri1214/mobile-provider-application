@@ -1,14 +1,14 @@
 'use strict';
 
 import angular from 'angular';
-import ApiProviderService from '../../shared/api.provider.service';
-import ConfigService from '../../shared/config.service';
+import ApiProviderService from '../../shared/services/api.provider.service';
+import ConfigService from '../../shared/services/config.service';
 import DetectComponent from './detect.component';
-import DialogService from '../../shared/dialog.service';
-import ValidateService from '../../shared/validate.service';
+import DialogService from '../../shared/services/dialog.service';
+import ValidateService from '../../shared/services/validate.service';
 
 /**
- * @constant {String} DetectModule
+ * @const {String} DetectModule
  */
 const DetectModule = angular
   .module('app.detect', [])

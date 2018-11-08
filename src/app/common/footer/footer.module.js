@@ -4,7 +4,7 @@ import angular from 'angular';
 import FooterComponent from './footer.component';
 
 /**
- * @constant {String} FooterModule
+ * @const {String} FooterModule
  */
 const FooterModule = angular
   .module('app.footer', [])

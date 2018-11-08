@@ -1,9 +1,9 @@
 import * as _ from 'lodash';
 
 /**
- * @const {Object} RULES (Validation rules)
+ * @const {Object} RULES - Validation rules.
  */
-const RULES = {
+const RULES = Object.freeze({
   id: {
     require: true
   },
@@ -32,7 +32,7 @@ const RULES = {
     min: 12,
     require: true
   }
-};
+});
 
 /**
  * Class representing a validation data service.

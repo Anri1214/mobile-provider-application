@@ -3,7 +3,7 @@
 import DialogboxController from './dialogbox.controller';
 
 /**
- * @constant {Object} DialogboxComponent
+ * @const {Object} DialogboxComponent
  */
 const DialogboxComponent = {
   controller: DialogboxController,

@@ -3,7 +3,7 @@
 import FooterController from './footer.controller';
 
 /**
- * @constant {Object} FooterComponent
+ * @const {Object} FooterComponent
  */
 const FooterComponent = {
   controller: FooterController,

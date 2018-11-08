@@ -3,7 +3,7 @@
 import DetectController from './detect.controller';
 
 /**
- * @constant {Object} DetectComponent
+ * @const {Object} DetectComponent
  */
 const DetectComponent = {
   controller: DetectController,

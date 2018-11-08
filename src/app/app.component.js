@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @constant {Object} AppComponent
+ * @const {Object} AppComponent
  */
 const AppComponent = {
   template: require('./app.component.html')

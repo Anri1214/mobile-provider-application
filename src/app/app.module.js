@@ -4,9 +4,10 @@ import angular from 'angular';
 import AppComponent from './app.component';
 import CommonModule from './common/common.module';
 import ComponentsModule from './components/components.module';
+import './shared/common/types';
 
 /**
- * @constant {String} AppModule
+ * @const {String} AppModule
  */
 const AppModule = angular
   .module('app', [

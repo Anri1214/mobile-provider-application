@@ -51,7 +51,7 @@ class DetectController {
   /**
    * Show detect information in dialogbox.
    * @param {Event} $event - Button click event.
-   * @param {Object} data - Detect provider data.
+   * @param {Provider} data - Detect provider data.
    */
   showResult ($event, data = {}) {
     const $scope = this.scope;

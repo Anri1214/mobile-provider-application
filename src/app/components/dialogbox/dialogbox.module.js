@@ -1,18 +1,18 @@
 'use strict';
 
 import angular from 'angular';
-import ApiProviderService from '../../shared/api.provider.service';
-import ConfigService from '../../shared/config.service';
+import ApiProviderService from '../../shared/services/api.provider.service';
+import ConfigService from '../../shared/services/config.service';
 import DialogboxComponent from './dialogbox.component';
-import DialogboxService from '../../shared/dialog.service';
-import ValidateService from '../../shared/validate.service';
+import DialogboxService from '../../shared/services/dialog.service';
+import ValidateService from '../../shared/services/validate.service';
 import 'angular-aria';
 import 'angular-animate';
 import 'angular-messages';
 import 'angular-material';
 
 /**
- * @constant {String} DialogboxModule
+ * @const {String} DialogboxModule
  */
 const DialogboxModule = angular
   .module('app.dialogbox', ['ngMaterial'])

@@ -8,6 +8,7 @@ import angular from 'angular';
 class DialogService {
   /**
    * Initialize a service.
+   * @ngInject
    * @param {Object} $mdDialog - Angular material modal dialog object.
    */
   constructor ($mdDialog) {
@@ -23,7 +24,7 @@ class DialogService {
 
   /**
    * Show dialogbox window.
-   * @param {Event} params - Dialogbox parameters.
+   * @param {Dialogbox} params - Dialogbox parameters.
    */
   show (params) {
     this.mdDialog.show({
@@ -43,7 +44,5 @@ class DialogService {
     });
   }
 }
-
-DialogService.$inject = ['$mdDialog'];
 
 export default DialogService;

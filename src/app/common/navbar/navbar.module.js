@@ -4,7 +4,7 @@ import angular from 'angular';
 import NavbarComponent from './navbar.component';
 
 /**
- * @constant {String} NavbarModule
+ * @const {String} NavbarModule
  */
 const NavbarModule = angular
   .module('app.navbar', [])

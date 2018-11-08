@@ -14,7 +14,7 @@ class ApiProviderService {
 
   /**
    * Add item on server.
-   * @param {Object} data - Create data parameters.
+   * @param {Provider} data - Create data parameters.
    * @return {Promise}
    */
   addItem (data) {
@@ -32,8 +32,8 @@ class ApiProviderService {
 
   /**
    * Detect item by key field.
-   * @param {Object} data - Filter data parameters.
-   * @return {Promise}
+   * @param {Detect} data - Filter data parameters.
+   * @return {Promise.<Provider>}
    */
   detectItems (data) {
     return this.http.get(`${this.url}/detect`, { params: data });
@@ -41,8 +41,8 @@ class ApiProviderService {
 
   /**
    * Filter items on server.
-   * @param {Object} data - Filter data parameters.
-   * @return {Promise}
+   * @param {Provider} data - Filter data parameters.
+   * @return {Promise.<Provider[]>}
    */
   filterItems (data) {
     return this.http.get(this.url, { params: data });
@@ -51,7 +51,7 @@ class ApiProviderService {
   /**
    * Get item from server by ID.
    * @param {int} id - Get data ID.
-   * @return {Promise}
+   * @return {Promise.<Provider>}
    */
   getItem (id) {
     return this.http.get(`${this.url}/${id}`);
@@ -59,7 +59,7 @@ class ApiProviderService {
 
   /**
    * Get all items list from server.
-   * @return {Promise}
+   * @return {Promise.<Provider[]>}
    */
   getItems () {
     return this.http.get(this.url);
@@ -67,7 +67,7 @@ class ApiProviderService {
 
   /**
    * Update item on server.
-   * @param {Object} data - Create data parameters.
+   * @param {Provider} data - Create data parameters.
    * @param {int} id - Update data ID.
    * @return {Promise}
    */

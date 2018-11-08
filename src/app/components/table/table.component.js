@@ -3,7 +3,7 @@
 import TableController from './table.controller';
 
 /**
- * @constant {Object} TableComponent.
+ * @const {Object} TableComponent.
  */
 const TableComponent = {
   controller: TableController,
