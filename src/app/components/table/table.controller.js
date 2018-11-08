@@ -8,6 +8,7 @@ import * as _ from 'lodash';
 class TableController {
   /**
    * Initialize the controller.
+   * @ngInject
    * @param {Object} $scope - Table component controller scope.
    * @param {Object} ApiProviderService - Api provider HTTP request service.
    * @param {Object} ConfigService - Configuration service.
@@ -108,13 +109,5 @@ class TableController {
       .catch(() => this.error = true);
   }
 }
-
-TableController.$inject = [
-  '$scope',
-  'ApiProviderService',
-  'ConfigService',
-  'DialogboxService',
-  'ValidateService'
-];
 
 export default TableController;

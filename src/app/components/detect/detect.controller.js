@@ -8,6 +8,7 @@ import * as _ from 'lodash';
 class DetectController {
   /**
    * Initialize the controller.
+   * @ngInject
    * @param {Object} $scope - Table component controller scope.
    * @param {Object} ApiProviderService - Api provider HTTP request service.
    * @param {Object} ConfigService - Configuration service.
@@ -73,13 +74,5 @@ class DetectController {
     return this.validate.isValidData(this.detectParams.data);
   }
 }
-
-DetectController.$inject = [
-  '$scope',
-  'ApiProviderService',
-  'ConfigService',
-  'DialogService',
-  'ValidateService'
-];
 
 export default DetectController;

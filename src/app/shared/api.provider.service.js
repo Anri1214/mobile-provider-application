@@ -4,6 +4,7 @@
 class ApiProviderService {
   /**
    * Initialize a service.
+   * @ngInject
    * @param {Object} $http - Angular HTTP service.
    */
   constructor ($http) {
@@ -74,7 +75,5 @@ class ApiProviderService {
     return this.http.put(`${this.url}/${id}`, data);
   }
 }
-
-ApiProviderService.$inject = ['$http'];
 
 export default ApiProviderService;

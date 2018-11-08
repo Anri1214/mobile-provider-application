@@ -8,6 +8,7 @@ import * as _ from 'lodash';
 class DialogboxController {
   /**
    * Initialize the controller.
+   * @ngInject
    * @param {Object} ApiProviderService - Api provider HTTP request service.
    * @param {Object} ConfigService - Configuration service.
    * @param {Object} DialogService - Dialogbox functional service.
@@ -89,12 +90,5 @@ class DialogboxController {
     return this.validate.isValidData(this.dialogData);
   }
 }
-
-DialogboxController.$inject = [
-  'ApiProviderService',
-  'ConfigService',
-  'DialogboxService',
-  'ValidateService'
-];
 
 export default DialogboxController;
