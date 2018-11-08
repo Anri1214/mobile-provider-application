@@ -1,12 +1,9 @@
-import Angular from 'angular';
-
 /**
- * @class ConfigService for work with application parameters
+ * Class representing a application configuration service.
  */
-export default class ConfigService {
+class ConfigService {
   /**
-   * @method get detect parameters
-   *
+   * Get detect providers parameters.
    * @return {Object}
    */
   getDetectParams () {
@@ -23,49 +20,32 @@ export default class ConfigService {
   }
 
   /**
-   * @method get dalogbox view parameters
-   *
-   * @param {Object} $scope (Dialogbox scope)
-   * @param {Object} $event (Target event)
-   * @param {Function} callback (Dialogbox on close callback)
-   *
+   * Get dialogbox parameters.
    * @return {Object}
    */
-  getDialogboxParams ($scope, $event, callback = () => {}) {
+  getDialogboxParams () {
     return {
-      clickOutsideToClose: false,
-      disableParentScroll: true,
-      focusOnOpen: false,
-      onRemoving: callback,
-      parent: Angular.element(document.body),
-      preserveScope: true,
-      scope: $scope,
-      targetEvent: $event,
-      template: `<app-dialogbox dlg-data="dlgData"
-                                dlg-error="dlgError"
-                                dlg-type="dlgType"
-                                dlg-view="dlgView">
-                 </app-dialogbox>`
+      add: {
+        toolbar: 'Add New Item',
+        type: 'add'
+      },
+      del: {
+        toolbar: 'Delete Item',
+        type: 'del'
+      },
+      edit: {
+        toolbar: 'Edit Item',
+        type: 'edit'
+      },
+      view: {
+        toolbar: 'View Providers List',
+        type: 'view'
+      }
     };
   }
 
   /**
-   * @method get dialogbox toolbar parameters
-   *
-   * @return {Object}
-   */
-  getDialogboxToolbar () {
-    return {
-      add: 'Add New Item',
-      del: 'Delete Item',
-      edit: 'Edit Item',
-      view: 'View Providers List'
-    };
-  }
-
-  /**
-   * @method get default empty table item
-   *
+   * Get default empty table item.
    * @return {Object}
    */
   getTableItem () {
@@ -79,8 +59,7 @@ export default class ConfigService {
   }
 
   /**
-   * @method get default table parameters
-   *
+   * Get default table parameters.
    * @return {Object}
    */
   getTableParams () {
@@ -109,3 +88,5 @@ export default class ConfigService {
     return params;
   }
 }
+
+export default ConfigService;

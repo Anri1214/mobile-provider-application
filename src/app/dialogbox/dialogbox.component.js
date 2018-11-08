@@ -1,8 +1,8 @@
 'use strict';
 
 import Angular from 'angular';
+import ApiProviderService from '../services/api.provider.service';
 import ConfigService from '../services/config.service';
-import HttpService from '../services/http.service';
 import ValidateService from '../services/validate.service';
 import * as _ from 'lodash';
 import 'angular-aria';
@@ -14,13 +14,13 @@ import 'angular-material';
  * @function dialogbox component controller
  *
  * @param {Object} $mdDialog (Angular material modal dialog object)
+ * @param {Object} ApiProviderService (Api provider HTTP request service)
  * @param {Object} ConfigService (Configuration service)
- * @param {Object} HttpService (Http request service)
  * @param {Object} ValidateService (Validation service)
  */
-function dialogboxController ($mdDialog, ConfigService, HttpService, ValidateService) {
+function dialogboxController ($mdDialog, ApiProviderService, ConfigService, ValidateService) {
+  this.api = ApiProviderService;
   this.config = ConfigService;
-  this.http = HttpService;
   this.rules = ValidateService.getRules();
   this.toolbar = ConfigService.getDialogboxToolbar();
   this.addItem = item => item.push('');
@@ -37,13 +37,13 @@ function dialogboxController ($mdDialog, ConfigService, HttpService, ValidateSer
 /**
  * @inject providers to dialogbox component
  */
-dialogboxController.$inject = ['$mdDialog', 'ConfigService', 'HttpService', 'ValidateService'];
+dialogboxController.$inject = ['$mdDialog', 'ApiProviderService', 'ConfigService', 'ValidateService'];
 
 /**
  * @function remove dialogbox data
  */
 function delData () {
-  this.http.delItem(this.dlgData.id)
+  this.api.delItem(this.dlgData.id)
     .then(() => this.closeDialog())
     .catch(() => this.dlgError = true);
 }
@@ -72,7 +72,7 @@ function saveData () {
   const method = this.dlgType === 'add' ? 'addItem' : 'updateItem';
 
   _.assign(save, _.pick(data, keys));
-  this.http[method](save, data.id)
+  this.api[method](save, data.id)
     .then(() => this.closeDialog())
     .catch(() => this.dlgError = true);
 }
@@ -92,7 +92,7 @@ export default Angular
       dlgView: '='
     }
   })
+  .service('ApiProviderService', ['$http', ApiProviderService])
   .service('ConfigService', ConfigService)
-  .service('HttpService', ['$http', HttpService])
   .service('ValidateService', ValidateService)
   .name;

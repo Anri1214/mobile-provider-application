@@ -5,7 +5,8 @@
          class="mpa-detect-container__input">
       <md-input-container>
         <label>
-          {{param.label}}: (min: {{$ctrl.rules[param.field].min}}, max: {{$ctrl.rules[param.field].max}})
+          {{param.label}}:
+          (min: {{$ctrl.rules[param.field].min}}, max: {{$ctrl.rules[param.field].max}})
         </label>
         <input type="text"
                ng-model="$ctrl.detectParams.data[param.field]"

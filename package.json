@@ -2,7 +2,7 @@
   "name": "mobile-provider-application",
   "version": "1.0.0",
   "description": "Mobile Provider Application",
-  "main": "src/js/app.module.js",
+  "main": "src/app/app.module.js",
   "author": "Andriy Kutsyk",
   "license": "ISC",
   "scripts": {
@@ -12,7 +12,7 @@
     "lint:watch": "esw --watch",
     "stylelint": "stylelint './src/scss/*.css'",
     "precommit": "npm run lint && npm run stylelint",
-    "apiserver": "./node_modules/.bin/json-server --watch src/js/server/db.json"
+    "apiserver": "./node_modules/.bin/json-server --watch src/app/server/db.json"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",

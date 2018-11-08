@@ -1,6 +1,6 @@
 <div class="mpa-table-wrapper">
   <h2 class="mpa-table-title">Providers List</h2>
-  <table ng-init="$ctrl.updateTableData(false)" class="mpa-table">
+  <table ng-init="$ctrl.updateTable()" class="mpa-table">
     <thead class="mpa-table__head">
       <tr class="mpa-table__head--row background">
         <th ng-repeat="param in $ctrl.tableParams.view"
@@ -10,7 +10,7 @@
             {{param.title}}
             <md-button class="mpa-table__head--btn"
                        ng-if="param.sort !== false"
-                       ng-click="$ctrl.sortTableData(param.field)"
+                       ng-click="$ctrl.sortTable(param.field)"
                        title="Sort Item"
                        aria-label="sort">
               <i class="fas"
@@ -32,13 +32,13 @@
               </label>
               <input type="text"
                      ng-model="$ctrl.tableParams.filter[param.filter]"
-                     ng-change="$ctrl.updateTableData(true)"
+                     ng-change="$ctrl.updateTable(true)"
                      class="mpa-input-container__input"
                      ng-class="'input-' + $ctrl.toKebabCase(param.field)">
             </md-input-container>
             <md-button class="mpa-table__head--btn btn-margin"
                        ng-if="param.filter"
-                       ng-click="$ctrl.updateTableData(false);
+                       ng-click="$ctrl.updateTable(false);
                                  $ctrl.tableParams.filter[param.filter] = ''"
                        ng-disabled="!$ctrl.tableParams.filter[param.filter]"
                        title="Clear Filter"
@@ -49,7 +49,7 @@
           <div ng-if="param.field === 'action'"
                class="mpa-table__container">
             <md-button class="mpa-table__head--btn btn-margin"
-                       ng-click="$ctrl.showDlg($event, null, 'add')"
+                       ng-click="$ctrl.showInfo($event, null, $ctrl.dialogboxParams.add.type)"
                        title="Add New Item"
                        aria-label="create">
               <i class="fas fa-plus"></i>
@@ -78,13 +78,13 @@
           <div ng-if="param.field === 'action'"
                class="mpa-table__container">
             <md-button class="mpa-table__body--btn"
-                       ng-click="$ctrl.showDlg($event, row, 'edit')"
+                       ng-click="$ctrl.showInfo($event, row, $ctrl.dialogboxParams.edit.type)"
                        title="Edit Item"
                        aria-label="edit">
               <i class="fas fa-edit"></i>
             </md-button>
             <md-button class="mpa-table__body--btn"
-                       ng-click="$ctrl.showDlg($event, row, 'del')"
+                       ng-click="$ctrl.showInfo($event, row, $ctrl.dialogboxParams.del.type)"
                        title="Delete Item"
                        aria-label="del">
               <i class="fas fa-trash"></i>
